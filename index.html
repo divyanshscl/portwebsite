@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <title>Divyansh Bidsar | ROG Cyber 3D Portfolio</title>
+  
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body class="bg-[#050608] text-slate-100 overflow-x-hidden selection:bg-rog-accent selection:text-white font-rajdhani">
+
+  <!-- 3D WebGL Canvas Layer -->
+  <div id="canvas-container" class="fixed inset-0 z-0 pointer-events-auto">
+    <canvas id="webgl-canvas" class="w-full h-full block"></canvas>
+  </div>
+
+
+  <!-- MINIMAL SLEEK BLACK CIRCULAR POWER BUTTON (0 and 1 symbol) -->
+  <div id="power-interaction-overlay" class="fixed inset-x-0 bottom-10 z-30 flex flex-col items-center justify-center pointer-events-none transition-all duration-700">
+    <div class="pointer-events-auto flex flex-col items-center">
+      <button id="power-ignite-btn" class="relative group cursor-pointer p-0 rounded-full outline-none transition-transform duration-300 active:scale-95 hover:scale-105" aria-label="Power Up System">
+        <!-- Subtle pulsing glow aura on hover -->
+        <div class="absolute -inset-2 rounded-full bg-cyan-400/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+        <!-- Solid Sleek Black Circular Button -->
+        <div class="relative w-20 h-20 rounded-full bg-[#0a0b10] border-2 border-[#1e202e] group-hover:border-cyan-400 flex items-center justify-center shadow-[0_8px_25px_rgba(0,0,0,0.8),inset_0_1px_2px_rgba(255,255,255,0.1)] transition-colors duration-300">
+          <!-- Power Symbol (Circle '0' with vertical line '1' at top) -->
+          <svg class="w-9 h-9 text-slate-300 group-hover:text-cyan-400 transition-colors duration-300 drop-shadow-[0_0_8px_rgba(0,240,255,0.4)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Broken Circle '0' -->
+            <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+            <!-- Vertical Line '1' -->
+            <line x1="12" y1="2" x2="12" y2="12"></line>
+          </svg>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- ON-SCREEN PROMPT TRIGGER (Synchronized with Laptop Display) -->
+  <div id="open-portfolio-prompt" class="fixed bottom-10 left-1/2 -translate-x-1/2 z-30 opacity-0 pointer-events-none transform translate-y-6 transition-all duration-700">
+    <button id="open-portfolio-btn" class="group relative px-8 py-3.5 rounded-xl font-orbitron font-bold text-sm tracking-widest uppercase overflow-hidden cursor-pointer focus:outline-none focus:ring-4 focus:ring-rog-cyan/40 shadow-[0_0_30px_rgba(0,240,255,0.3)]">
+      <div class="absolute inset-0 bg-gradient-to-r from-rog-red via-purple-600 to-rog-cyan opacity-90 group-hover:opacity-100 transition-opacity"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+      <div class="relative flex items-center gap-3 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+        <span>OPEN PORTFOLIO</span>
+        <svg class="w-5 h-5 transform group-hover:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </div>
+    </button>
+  </div>
+
+  <!-- IMMERSIVE PORTFOLIO FULL VIEWPORT OVERLAY (Phase 5) -->
+  <div id="portfolio-container" class="fixed inset-0 z-50 overflow-y-auto opacity-0 pointer-events-none transition-opacity duration-1000 backdrop-blur-md bg-rog-bg/95">
+    <!-- Populated dynamically and mounted by portfolioView.js -->
+  </div>
+
+  <!-- Core App Entrypoint -->
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
