@@ -6,6 +6,16 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: true,
+    chunkSizeWarningLimit: 1200,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          three: ['three'],
+          gsap: ['gsap'],
+          lucide: ['lucide'],
+        },
+      },
+    },
   },
   server: {
     port: 3000,

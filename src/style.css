@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #050608;
+  color: #e2e8f0;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0b10;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00f0ff, #ff007f);
+  border-radius: 3px;
+}
+
+/* ===== CRT Scanline overlay ===== */
+.scanline-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 240, 255, 0.03) 0px,
+    rgba(0, 240, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ===== Cyber grid background helper ===== */
+.cyber-grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ===== Glow text ===== */
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.6), 0 0 20px rgba(0, 240, 255, 0.3);
+}
+.text-glow-pink {
+  text-shadow: 0 0 10px rgba(255, 0, 127, 0.6), 0 0 20px rgba(255, 0, 127, 0.3);
+}
+.text-glow-red {
+  text-shadow: 0 0 10px rgba(255, 0, 85, 0.6), 0 0 20px rgba(255, 0, 85, 0.3);
+}
+
+/* ===== Panel card ===== */
+.cyber-panel {
+  background: rgba(16, 17, 26, 0.85);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+/* ===== Skill bar ===== */
+.skill-bar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.skill-bar-fill {
+  background: linear-gradient(90deg, #00f0ff, #ff007f);
+  height: 100%;
+  border-radius: 999px;
+  transition: width 1.5s ease-out;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+}
+
+/* ===== Typewriter cursor ===== */
+.type-cursor {
+  display: inline-block;
+  width: 8px;
+  background: #00f0ff;
+  animation: blink 0.7s steps(1) infinite;
+  margin-left: 2px;
+  box-shadow: 0 0 8px #00f0ff;
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ===== Speedometer / gauges wrapper ===== */
+.gauge-canvas {
+  image-rendering: crisp-edges;
+}
+
+/* ===== Portfolio sections ===== */
+.portfolio-section {
+  animation: fadeInUp 0.6s ease-out both;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Timeline dot ===== */
+.timeline-dot {
+  box-shadow: 0 0 12px #00f0ff, 0 0 24px rgba(0, 240, 255, 0.3);
+}
+
+/* ===== Audio visualizer bar ===== */
+.audio-bar {
+  background: linear-gradient(180deg, #00f0ff, #ff007f);
+  width: 3px;
+  border-radius: 2px;
+  transition: height 0.1s ease;
+}
+
+/* ===== Loading/boot text ===== */
+.boot-text-line {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(0, 240, 255, 0.8);
+  white-space: nowrap;
+}
+
+/* ===== Hide scrollbars inside portfolio panels ===== */
+.scroll-hide::-webkit-scrollbar {
+  display: none;
+}
+.scroll-hide {
+  scrollbar-width: none;
+}
